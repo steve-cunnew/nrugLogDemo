@@ -17,7 +17,7 @@ console.log(firstName + '\n' + pizza + '\n' + drink)
       "message": `NEW ORDER SUBMITTED. name=${firstName} pizza=${pizza} and drink=${drink}`
     }
   ]);
-  //var apiKey = '703ea3b19d08d6eb2e5e4fb4c0f0c5b7FFFFNRAL';
+
   var xhr = new XMLHttpRequest();
   xhr.withCredentials = true;
   
