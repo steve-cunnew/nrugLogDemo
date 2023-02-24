@@ -25,8 +25,6 @@ let orderDetails = document.getElementById('orderPreference').value;
   });
   
   xhr.open("POST", `https://log-api.newrelic.com/log/v1?Api-Key=${apiKey}`);
-  xhr.setRequestHeader("Content-Type", "application/json");
-
   
   xhr.send(data);
 }
@@ -55,9 +53,7 @@ function sendText() {
       }
     });
     
-    xhr.open("POST", `https://log-api.newrelic.com/log/v1?Api-Key=${apiKey}`);
-    xhr.setRequestHeader("Content-Type", "application/json");
-  
+    xhr.open("POST", `https://log-api.newrelic.com/log/v1?Api-Key=${apiKey}`);  
     
     xhr.send(data);
   
