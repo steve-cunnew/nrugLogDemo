@@ -4,7 +4,7 @@ const apiKey = urlParams.get('apiKey');
 
 const apiUrl = `https://log-api.newrelic.com/log/v1?Api-Key=${apiKey}`;
 
-const textElem = document.getElementById('textInput') || document.getElementById('orderPreference');
+let textElem;
 
 const messageObj = {
   event: 'NRUG',
@@ -14,6 +14,7 @@ const messageObj = {
 
 function submit() {
 
+  textElem = textElem || document.getElementById('textInput') || document.getElementById('orderPreference');
   let orderDetails = textElem.value;
   if (!orderDetails) {
     return;
