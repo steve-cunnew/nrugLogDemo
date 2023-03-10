@@ -30,6 +30,7 @@ function submit() {
 
 function sendText() {
 
+  textElem = textElem || document.getElementById('textInput') || document.getElementById('orderPreference');
   const freeText = textElem.value;
 
   if (!freeText) {
