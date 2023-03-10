@@ -12,10 +12,11 @@ const messageObj = {
   message: ''
 }
 
-function submit() {
+function submit(buttonElem) {
 
-  textElem = textElem || document.getElementById('textInput') || document.getElementById('orderPreference');
-  let orderDetails = textElem.value;
+  tempDisableButton(buttonElem);
+  textElem = textElem || document.getElementById('orderPreference');
+  const orderDetails = textElem.value;
   if (!orderDetails) {
     return;
   }
@@ -28,9 +29,10 @@ function submit() {
 
 }
 
-function sendText() {
+function sendText(buttonElem) {
 
-  textElem = textElem || document.getElementById('textInput') || document.getElementById('orderPreference');
+  tempDisableButton(buttonElem);
+  textElem = textElem || document.getElementById('textInput');
   const freeText = textElem.value;
 
   if (!freeText) {
