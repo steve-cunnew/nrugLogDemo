@@ -28,10 +28,10 @@ let orderDetails = document.getElementById('orderPreference').value;
   
   xhr.send(data);
 
-  var getValue= document.getElementById("orderPreference");
-  if (getValue.value !="") {
-      getValue.value = "";
-  }
+  // var getValue= document.getElementById("orderPreference");
+  // if (getValue.value !="") {
+  //     getValue.value = "";
+  // }
 
 }
 
@@ -63,10 +63,10 @@ function sendText() {
     
     xhr.send(data);
 
-    var getValue= document.getElementById("textInput");
-    if (getValue.value !="") {
-        getValue.value = "";
-    }
+    // var getValue= document.getElementById("textInput");
+    // if (getValue.value !="") {
+    //     getValue.value = "";
+    // }
   
   }
 
