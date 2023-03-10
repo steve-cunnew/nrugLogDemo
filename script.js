@@ -2,87 +2,89 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const apiKey = urlParams.get('apiKey');
 
+const apiUrl = `https://log-api.newrelic.com/log/v1?Api-Key=${apiKey}`;
+
+const textElem = document.getElementById('textInput') || document.getElementById('orderPreference');
+
+const messageObj = {
+  event: 'NRUG',
+  src: 'webForm',
+  message: ''
+}
+
 function submit() {
 
-let orderDetails = document.getElementById('orderPreference').value;
+  let orderDetails = textElem.value;
+  if (!orderDetails) {
+    return;
+  }
 
-
-  var data = JSON.stringify([
-    {
-      "event": "NRUG",
-      "src": "webForm",
-      "message": `NEW ORDER SUBMITTED. ${orderDetails}`
-    }
-  ]);
-
-  var xhr = new XMLHttpRequest();
-  xhr.withCredentials = true;
+  messageObj.message = `NEW ORDER SUBMITTED. ${orderDetails}`;
   
-  xhr.addEventListener("readystatechange", function() {
-    if(this.readyState === 4) {
-      console.log(this.responseText);
-    }
-  });
   
-  xhr.open("POST", `https://log-api.newrelic.com/log/v1?Api-Key=${apiKey}`);
-  
-  xhr.send(data);
 
-  // var getValue= document.getElementById("orderPreference");
-  // if (getValue.value !="") {
-  //     getValue.value = "";
-  // }
-
-  document.getElementById('loadingGif').style.display = "block";
-  setTimeout(function() {
-    document.getElementById('loadingGif').style.display = "none";
-  },750);
+  sendData(data);
 
 }
 
 function sendText() {
 
-  let freeText = document.getElementById('textInput').value;
-  
+  const freeText = textElem.value;
+
+  if (!freeText) {
+    return;
+  }
   
   //console.log(firstName + '\n' + pizza + '\n' + drink)
   
-    var data = JSON.stringify([
-      {
-        "event": "NRUG",
-        "src": "webForm",
-        "message": `${freeText}`
-      }
-    ]);
+  messageObj.message = freeText;
 
-    var xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
-    
-    xhr.addEventListener("readystatechange", function() {
-      if(this.readyState === 4) {
-        console.log(this.responseText);
-      }
-    });
-    
-    xhr.open("POST", `https://log-api.newrelic.com/log/v1?Api-Key=${apiKey}`);  
-    
-    xhr.send(data);
+  sendData(data);
 
-    // var getValue= document.getElementById("textInput");
-    // if (getValue.value !="") {
-    //     getValue.value = "";
-    // }
+}
+
+function sendData(data) {
+
+  const data = JSON.stringify([ messageObj ]);
+
+  const xhr = new XMLHttpRequest();
+  xhr.withCredentials = true;
+    
+  xhr.addEventListener("readystatechange", function() {
+    if(this.readyState === 4) {
+      console.log(this.responseText);
+    }
+  });
+    
+  xhr.open("POST", apiUrl);  
+    
+  xhr.send(data);
+
+  // var getValue= document.getElementById("textInput");
+  // if (getValue.value !="") {
+  //     getValue.value = "";
+  // }
+
+  }
+
+function enableButton(button) {
+  button.disabled = false;
+  button.classList.remove('is-light');
+}
   
-    document.getElementById('loadingGif').style.display = "block";
-    setTimeout(function() {
-      document.getElementById('loadingGif').style.display = "none";
-    },750);
+function tempDisableButton(button) {
+  console.log(button.classList);
+  //button.disabled = true;
+  button.classList.add('is-light');
+  setTimeout(enableButton, 750, button);
+}
 
-  }
+function nextPage() {
 
+  location.href = `./food.html?apiKey=${apiKey}`;
 
-  function nextPage() {
+}
 
-    location.href = `./food.html?apiKey=${apiKey}`
-
-  }
+function prevPage() {
+  location.href = `./?apiKey=${apiKey}`;
+}
