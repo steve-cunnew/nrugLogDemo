@@ -33,6 +33,11 @@ let orderDetails = document.getElementById('orderPreference').value;
   //     getValue.value = "";
   // }
 
+  document.getElementById('loadingGif').style.display = "block";
+  setTimeout(function() {
+    document.getElementById('loadingGif').style.display = "none";
+  },750);
+
 }
 
 function sendText() {
@@ -68,6 +73,11 @@ function sendText() {
     //     getValue.value = "";
     // }
   
+    document.getElementById('loadingGif').style.display = "block";
+    setTimeout(function() {
+      document.getElementById('loadingGif').style.display = "none";
+    },750);
+
   }
 
 
