@@ -23,7 +23,7 @@ function submit() {
   
   
 
-  sendData(data);
+  sendData(messageObj);
 
 }
 
@@ -39,13 +39,13 @@ function sendText() {
   
   messageObj.message = freeText;
 
-  sendData(data);
+  sendData(messageObj);
 
 }
 
 function sendData(data) {
 
-  const data = JSON.stringify([ messageObj ]);
+  const dataStr = JSON.stringify([ messageObj ]);
 
   const xhr = new XMLHttpRequest();
   xhr.withCredentials = true;
@@ -58,7 +58,7 @@ function sendData(data) {
     
   xhr.open("POST", apiUrl);  
     
-  xhr.send(data);
+  xhr.send(dataStr);
 
   // var getValue= document.getElementById("textInput");
   // if (getValue.value !="") {
