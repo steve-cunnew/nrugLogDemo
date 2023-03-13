@@ -65,6 +65,12 @@ function sendPreset(buttonElem) {
   sendData(messageObj);
 
 }
+function clearText() {
+
+  textElem = textElem || document.getElementById('textInput');
+  textElem.value = '';
+
+}
 
 function copyPreset(buttonElem) {
 
