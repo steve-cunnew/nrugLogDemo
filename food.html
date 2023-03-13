@@ -40,7 +40,7 @@
     <div class="field">
         <label class="label">Enter your name, pizza preference, and drink preference.</label>
         <div class="control">
-          <input class="input" type="text"  id="orderPreference">
+          <input class="input" type="text" value='{ "name": "", "pizza": "", "drink":"" }'' id="orderPreference">
         </div>
       </div>
         
@@ -48,13 +48,16 @@
                 <div class="hero-body">
                   <div class="container">
                     <h1 class="title">
-                      <button onclick='submit()' class="button is-danger is-outlined" id="submit">SUBMIT  </button>
-                      <div id="loadingGif" style="display:none"><img src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif" style="max-width:25em;"></div>
+                      <button onclick='submit(this);' class="button is-danger is-outlined" id="submit">SUBMIT  </button>
                     </h1>
                     <h2 class="title">
                       Submit as many times as you would like :)  
                     </h2>
-    
+                    <div class="buttons">
+                      <h1 class="title">
+                        <button onclick='prevPage()' class="button is-danger is-outlined">Prev Step</button>
+                      </h1>
+                      </div>  
                   </div>
                 </div>
               </section>
