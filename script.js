@@ -23,8 +23,6 @@ function submit(buttonElem) {
 
   messageObj.message = `NEW ORDER SUBMITTED. ${orderDetails}`;
   
-  
-
   sendData(messageObj);
 
 }
@@ -47,7 +45,46 @@ function sendText(buttonElem) {
 
 }
 
+function getStepText(buttonElem) {
+  const parentElem = buttonElem && buttonElem.parentElement;
+  const textElem =  parentElem && parentElem.previousElementSibling;
+  return textElem && textElem.textContent;
+}
+
+function sendPreset(buttonElem) {
+
+  tempDisableButton(buttonElem);
+  const text = getStepText(buttonElem);
+  
+  if (!text) {
+    return;
+  }
+
+  messageObj.message = text;
+
+  sendData(messageObj);
+
+}
+
+function copyPreset(buttonElem) {
+
+  const text = getStepText(buttonElem);
+  
+  if (!text) {
+    return;
+  }
+
+  textElem = textElem || document.getElementById('textInput');
+  textElem.value = text;
+
+}
+
+
 function sendData(data) {
+
+  if (!apiKey) {
+    return;
+  }
 
   const dataStr = JSON.stringify([ messageObj ]);
 
@@ -73,13 +110,12 @@ function sendData(data) {
 
 function enableButton(button) {
   button.disabled = false;
-  button.classList.remove('is-light');
+  button.classList.remove('is-loading');
 }
   
 function tempDisableButton(button) {
-  console.log(button.classList);
-  //button.disabled = true;
-  button.classList.add('is-light');
+  button.disabled = true;
+  button.classList.add('is-loading');
   setTimeout(enableButton, 750, button);
 }
 
@@ -90,5 +126,5 @@ function nextPage() {
 }
 
 function prevPage() {
-  location.href = `./?apiKey=${apiKey}`;
+  location.href = `./index.html?apiKey=${apiKey}`;
 }
