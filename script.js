@@ -1,6 +1,7 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const apiKey = urlParams.get('apiKey');
+const tinyUrl = urlParams.get('tinyUrl');
 
 const apiUrl = `https://log-api.newrelic.com/log/v1?Api-Key=${apiKey}`;
 
@@ -10,6 +11,13 @@ const messageObj = {
   event: 'NRUG',
   src: 'webForm',
   message: ''
+}
+
+if (tinyUrl) {
+  let displayUrlElem = document.getElementById('displayUrl');
+  if (displayUrlElem) {
+    displayUrlElem.textContent = decodeURIComponent(tinyUrl);
+  }
 }
 
 function submit(buttonElem) {

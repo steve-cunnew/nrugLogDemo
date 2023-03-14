@@ -6,8 +6,6 @@
       
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
 
-    <script src="./script.js"></script>
-
     <title>NRUG Logs Demo</title>
 
   </head>
@@ -18,9 +16,16 @@
   <section class="section">
 
     <div class="container">
-      <figure class="image">
-        <img src="nrLogo.png" alt="New Relic Logo" style="max-width:40%"> 
-      </figure>
+      <div class="columns is-vcentered">
+        <div class="column">
+          <figure class="image">
+            <img src="nrLogo.png" alt="New Relic Logo" style="max-width:40%">
+          </figure>
+        </div>
+        <div class="column content">
+          <h1 id="displayUrl" class="content has-text-success"></h1>
+        </div>
+      </div>
     </div>
 
     <section class="hero  is-primary is-bold" style="margin-top: 30px;">
@@ -56,6 +61,7 @@
       <h2 class="title">Submit as many times as you would like :)</h2>
     </div>
   </section>
+  <script src="./script.js"></script>
   </body>
 </html>
 
