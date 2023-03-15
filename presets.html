@@ -6,8 +6,6 @@
       
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
 
-    <script src="./script.js"></script>
-
     <title>NRUG Logs Demo</title>
 
   </head>
@@ -18,12 +16,19 @@
   <section class="section">
 
     <div class="container">
-      <figure class="image">
-        <img src="nrLogo.png" alt="New Relic Logo" style="max-width:40%"> 
-      </figure>
+      <div class="columns is-vcentered">
+        <div class="column">
+          <figure class="image">
+            <img src="nrLogo.png" alt="New Relic Logo" style="max-width:40%">
+          </figure>
+        </div>
+        <div class="column content">
+          <h1 id="displayUrl" class="content has-text-success">https://tinyurl.com/NrLogLondon</h1>
+        </div>
+      </div>
     </div>
 
-    <section class="hero  is-primary is-bold" style="margin-top: 30px;">
+    <section class="hero is-primary is-bold" style="margin-top: 30px;">
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
@@ -39,7 +44,7 @@
       <div class="container">
         <div class="pb-5">
           <label class="label">Step 1</label>
-          <div>My favourite pizza=pepperoni</div>
+          <div>My favourite pizza is pepperoni</div>
           <div>
             <button onclick='sendPreset(this);' class="button is-grey has-text-grey is-outlined mr-2">SUBMIT</button>
             <button onclick='copyPreset(this);' class="button is-grey has-text-grey is-outlined mr-2">COPY</button>
@@ -68,7 +73,7 @@
         
         <div class="pb-5">
           <label class="label">Step 4</label>
-          <div>My favourite pizza=ham and pineapple drink=beer name=Someone</div>
+          <div>My favourite pizza=ham and mushroom drink=beer name=Mario</div>
           <div>
             <button onclick='sendPreset(this);' class="button is-grey has-text-grey is-outlined mr-2">SUBMIT</button>
             <button onclick='copyPreset(this);' class="button is-grey has-text-grey is-outlined mr-2">COPY</button>
@@ -77,16 +82,16 @@
 
         <div class="pb-5">
           <label class="label">Step 5</label>
-          <div>My favourite drink=beer pizza=ham and pineapple name=Someone</div>
+          <div>My favourite drink=beer pizza=pepperoni name=Luigi</div>
           <div>
             <button onclick='sendPreset(this);' class="button is-grey has-text-grey is-outlined mr-2">SUBMIT</button>
             <button onclick='copyPreset(this);' class="button is-grey has-text-grey is-outlined mr-2">COPY</button>
           </div>
-        </div>    
+        </div> 
 
         <div class="pb-5">
           <label class="label">Step 6</label>
-          <div>NEW ORDER SUBMITTED. { "name": "someone", "pizza": "Margherita", "drink": "pepsi max" }</div>
+          <div>My favourite pizza=hawaiian drink=espresso martini name=Princess Peach</div>
           <div>
             <button onclick='sendPreset(this);' class="button is-grey has-text-grey is-outlined mr-2">SUBMIT</button>
             <button onclick='copyPreset(this);' class="button is-grey has-text-grey is-outlined mr-2">COPY</button>
@@ -95,7 +100,34 @@
 
         <div class="pb-5">
           <label class="label">Step 7</label>
-          <div>NEW ORDER SUBMITTED. someone, Margherita, pepsi max" }</div>
+          <div>My favourite drink=beer pizza=hawaiian name=Yoshi</div>
+          <div>
+            <button onclick='sendPreset(this);' class="button is-grey has-text-grey is-outlined mr-2">SUBMIT</button>
+            <button onclick='copyPreset(this);' class="button is-grey has-text-grey is-outlined mr-2">COPY</button>
+          </div>
+        </div>    
+
+        <div class="pb-5">
+          <label class="label">Step 8</label>
+          <div>I want json { "pizza": "Margherita", "dip":"garlic and herb", "drink": "pepsi max" }</div>
+          <div>
+            <button onclick='sendPreset(this);' class="button is-grey has-text-grey is-outlined mr-2">SUBMIT</button>
+            <button onclick='copyPreset(this);' class="button is-grey has-text-grey is-outlined mr-2">COPY</button>
+          </div>
+        </div>
+
+        <div class="pb-5">
+          <label class="label">Step 9</label>
+          <div>I want json {"pizza":"honey and sage", "dip":"sweet chilli"}</div>
+          <div>
+            <button onclick='sendPreset(this);' class="button is-grey has-text-grey is-outlined mr-2">SUBMIT</button>
+            <button onclick='copyPreset(this);' class="button is-grey has-text-grey is-outlined mr-2">COPY</button>
+          </div>
+        </div>    
+
+        <div class="pb-5">
+          <label class="label">Step 10</label>
+          <div>I want csv pizza crispy duck,hoisin sauce,peroni" }</div>
           <div>
             <button onclick='sendPreset(this);' class="button is-grey has-text-grey is-outlined mr-2">SUBMIT</button>
             <button onclick='copyPreset(this);' class="button is-grey has-text-grey is-outlined mr-2">COPY</button>
@@ -119,5 +151,6 @@
       </h1>
     </div>
   </section>
+  <script src="./script.js"></script>
   </body>
 </html>
