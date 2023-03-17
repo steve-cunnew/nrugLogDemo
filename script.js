@@ -5,7 +5,7 @@ const tinyUrl = urlParams.get('tinyUrl');
 
 const apiUrl = `https://log-api.newrelic.com/log/v1?Api-Key=${apiKey}`;
 
-let textElem;
+let textElem = document.getElementById('textInput') || document.getElementById('orderPreference');
 
 const messageObj = {
   event: 'NRUG',
